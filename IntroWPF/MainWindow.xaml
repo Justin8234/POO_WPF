@@ -8,6 +8,7 @@
         Title="Intor WPF" Height="450" Width="800">
     <Grid>
         <TextBlock Name="tbIntro" HorizontalAlignment="center" TextWrapping="Wrap" Text="Hello World" VerticalAlignment="center"/>
+        <Button Name="btnClick" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="30" Content="Cliquer" Click="OnOnOffClick"/>
 
     </Grid>
 </Window>

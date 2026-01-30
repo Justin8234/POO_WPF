@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ListeDeNoms
 {
@@ -12,9 +14,12 @@ namespace ListeDeNoms
             InitializeComponent();
         }
 
-        void OnEdtNomKeyDown(object sender, EventArgs e)
+        void OnEdtNomKeyDown(object sender, KeyEventArgs e)
         {
-            // Comment on ajoute un évènement en xaml?
+            if (e.Key == Key.Enter)
+            {
+                AddName(edtName.Text);
+            }
         }
 
         void OnBtnAddNameClick(object sender, EventArgs e)
@@ -25,8 +30,11 @@ namespace ListeDeNoms
         // Avoir un message box qui montre le nom
         void AddName(string name)
         {
-            MessageBox.Show(name);
-
+                var tbNom = new TextBlock();
+                tbNom.Margin = new Thickness(30, 0, 0, 0);
+                gridNoms.Children.Add(tbNom);
+                tbNom.Text = name;
+                edtName.Text = "";
         }
     }
 }

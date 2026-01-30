@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace ChiffreSecret
 {
@@ -6,7 +7,7 @@ namespace ChiffreSecret
     {
         int NumberOfAttempts;
         int NumberToFind;
-        Random Random = new Random();
+        Random random = new Random();
         public MainWindow()
         {
             InitializeComponent();
@@ -16,7 +17,40 @@ namespace ChiffreSecret
 
         private void PrepareButtons()
         {
-            // Ici tu vas préparer tes boutons.
+            Button button = new Button();
+            Random random = new Random();
+           
+          
+            for (int i = 0; i <= 20; i++)
+            {
+                button = new Button();
+                button.Click += OnBtnNumberClick;
+                GridButtons.Children.Add(button);
+                button.Content = i.ToString();
+                button.Width = 40;
+                button.Margin = new Thickness((i - 1) * 39, 0, 0, 0);
+                button.HorizontalAlignment = HorizontalAlignment.Left;
+            }
+
+           
+
         }
+        void OnBtnNumberClick(object sender, RoutedEventArgs e)
+        {
+            NumberToFind = random.Next(0, 21);
+            int numberClicked = int.Parse((string)((Button)sender).Content);
+
+           
+            if (numberClicked <= NumberToFind)
+            {
+                tbHint.Text = "↑";
+            }
+            else if(numberClicked >= NumberToFind)
+            {
+                tbHint.Text = "↓";
+            }else if(numberClicked == NumberToFind)
+            {
+                tbHint.Text = "Vous avez le bon nombre!!";
+            }
     }
-}
+}}

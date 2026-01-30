@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Configuration;
+using System.Diagnostics.Eventing.Reader;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,14 +18,26 @@ namespace IntroWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool _isOn = true;
         public MainWindow()
         {
             InitializeComponent();
+           
 
             tbIntro.Text = "Salut le monde!";
             tbIntro.FontSize= 120;
+            
+
 
             // Ensuite ajouter un bouton pour changer le texte (de type toggle)
+        }
+
+        private void OnOnOffClick(object sender, RoutedEventArgs e)
+        {
+           
+            tbIntro.Text = _isOn ? "On" : "Off";
+            _isOn = !_isOn;
+
         }
     }
 }

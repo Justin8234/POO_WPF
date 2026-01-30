@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Menu>
             <MenuItem Header="Fichier">
-                <MenuItem Header="NouvellePartie" Click="OnMenuNewGameClick"/>
+                <!--<MenuItem Header="NouvellePartie" Click="OnMenuNewGameClick"/>-->
             </MenuItem>
         </Menu>
         <Grid Grid.Row="1">
